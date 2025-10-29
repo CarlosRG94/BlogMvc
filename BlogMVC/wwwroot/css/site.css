@@ -1,0 +1,80 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
+  color: var(--bs-secondary-color);
+  text-align: end;
+}
+
+.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
+  text-align: start;
+}
+.navbar {
+    transition: all 0.3s ease-in-out;
+}
+
+.navbar-brand {
+    font-size: 1.2rem;
+    letter-spacing: 0.5px;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.85);
+    transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+    .navbar-dark .navbar-nav .nav-link:hover,
+    .navbar-dark .navbar-nav .nav-link.active {
+        color: #fff;
+        transform: translateY(-1px);
+    }
+
+@media (max-width: 992px) {
+    .navbar-nav .nav-link {
+        padding-left: 1rem;
+    }
+}
+
+/* Botón logout específico para navbar */
+.navbar .btn-logout {
+    background: transparent !important; /* sin fondo */
+    border: none !important; /* sin borde */
+    color: #000 !important; /* letras negras visibles */
+    padding: 0.25rem 0.5rem; /* pequeño padding */
+    margin: 0 !important;
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: none !important;
+    box-shadow: none !important;
+    display: inline-block;
+    line-height: 1.5;
+}
+
+    .navbar .btn-logout:hover,
+    .navbar .btn-logout:focus {
+        color: #000 !important; /* hover color */
+        text-decoration: underline;
+        background-color: transparent !important;
+        box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+        outline: none !important;
+    }

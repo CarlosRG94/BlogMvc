@@ -1,0 +1,246 @@
+﻿/* === GENERAL === */
+body {
+    background-color: #f5f7fa;
+    font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+}
+
+h1 {
+    color: #222;
+    font-size: 2rem;
+}
+
+/* === TARJETAS === */
+.card {
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+    .card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    .card img {
+        height: 220px;
+        object-fit: cover;
+    }
+
+.card-body {
+    background-color: #fff;
+    border-top: 1px solid #eee;
+    padding: 1rem 1.25rem;
+}
+
+.card-title {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-text {
+    font-size: 0.9rem;
+}
+
+/* === LOADING === */
+#cargar-mas {
+    height: 50px;
+}
+
+img[alt="Cargando..."] {
+    filter: brightness(0.6);
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 576px) {
+    .card img {
+        height: 160px;
+    }
+}
+
+/* === TABLAS MODERNAS === */
+.table {
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+}
+
+    .table thead {
+        background-color: #f1f3f5;
+        color: #333;
+        font-weight: 600;
+    }
+
+    .table th, .table td {
+        vertical-align: middle;
+        padding: 1rem;
+    }
+
+.table-hover tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+/* === TÍTULOS DE PÁGINA === */
+h1, h2, h3 {
+    font-weight: 600;
+    color: #222;
+}
+
+h5 {
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+/* === FORMULARIOS MODERNOS === */
+form {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    margin-top: 1rem;
+}
+
+label.form-label {
+    font-weight: 500;
+    color: #333;
+}
+
+.form-control {
+    border-radius: 10px;
+    padding: 10px 12px;
+    border: 1px solid #d0d7de;
+    transition: all 0.2s ease;
+}
+
+    .form-control:focus {
+        border-color: #0d6efd;
+        box-shadow: 0 0 0 0.2rem rgba(13,110,253,0.15);
+    }
+
+/* === BOTONES === */
+.btn {
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+    .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+/* === SECCIONES Y CONTENEDORES === */
+.container, .container-fluid {
+    margin-top: 2rem;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #dee2e6;
+    margin: 2rem 0;
+}
+
+/* === COMENTARIOS === */
+.comentario {
+    background-color: #fff;
+    border-left: 4px solid #0d6efd;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+    margin-bottom: 1rem;
+}
+
+    .comentario h6 {
+        margin-bottom: 0.3rem;
+    }
+
+textarea.form-control {
+    border-radius: 10px;
+    min-height: 100px;
+}
+
+/* === MODAL IA === */
+.modal-content {
+    border-radius: 16px;
+    box-shadow: 0 4px 25px rgba(0,0,0,0.2);
+}
+
+.modal-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #eee;
+}
+
+.modal-title {
+    font-weight: 600;
+}
+
+/* === IMÁGENES Y PREVISUALIZACIONES === */
+#PreviewImagen {
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+img.img-fluid {
+    border-radius: 12px;
+    margin-top: 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* === MENSAJES DE ESTADO === */
+p {
+    font-size: 1rem;
+}
+
+    p.text-muted {
+        color: #6c757d !important;
+    }
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+    form {
+        padding: 1.5rem;
+    }
+
+    .table th, .table td {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+    }
+
+    .btn {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* Botones de acción (Editar / Borrar / Restaurar) */
+.btn-accion {
+    min-width: 130px;
+    height: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    color: #fff !important;
+    border: none !important;
+    text-decoration: none;
+}
+
+    .btn-accion i {
+        margin-right: 6px;
+        font-size: 1rem;
+    }
+
+    .btn-accion:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+/* Asegura que el formulario no altere el layout */
+form.m-0.p-0 {
+    margin: 0 !important;
+    padding: 0 !important;
+    display: inline-block;
+}
