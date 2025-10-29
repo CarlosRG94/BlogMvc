@@ -43,7 +43,8 @@ builder.Services.AddHttpClient();
 builder.Services.AddHostedService<AnalisisSentimientosRecurrente>();
 
 //Configuración entity framework
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
+                      ?? Environment.GetEnvironmentVariable("ConnectionStrings__DefaultConnection");
 
 builder.Services.AddDbContextFactory<ApplicationDBContext>(options =>
     options.UseNpgsql(connectionString)
@@ -94,8 +95,9 @@ app.MapControllerRoute(
 
 app.MapBlazorHub();
 
-using (var scope = app.Services.CreateScope())
+if (!app.Environment.IsDevelopment())
 {
+    using var scope = app.Services.CreateScope();
     var db = scope.ServiceProvider.GetRequiredService<ApplicationDBContext>();
     db.Database.Migrate();
 }
