@@ -37,7 +37,7 @@ namespace BlogMVC.Servicios
                 var contenido = new StringContent(json, Encoding.UTF8, "application/json");
 
                 // ⚠️ cambia esto al dominio de Railway cuando despliegues
-                var respuesta = await httpClient.PostAsync("http://localhost:8000/predict", contenido);
+                var respuesta = await httpClient.PostAsync("https://analisissentimientosapi-production.up.railway.app/predict", contenido);
 
                 if (respuesta.IsSuccessStatusCode)
                 {
