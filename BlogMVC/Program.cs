@@ -7,6 +7,7 @@ using BlogMVC.Utilidades;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Options;
 using OpenAI;
 
@@ -82,6 +83,15 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(
+        Environment.GetEnvironmentVariable("VOLUMEN_IMAGENES") ?? "/app/volumen/imagenes"
+    ),
+    RequestPath = ""
+});
+
 app.UseRouting();
 
 app.UseAuthorization();

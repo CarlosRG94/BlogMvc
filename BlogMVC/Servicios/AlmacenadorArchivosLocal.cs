@@ -3,20 +3,22 @@ namespace BlogMVC.Servicios
 {
     public class AlmacenadorArchivosLocal : IAlmacenadorArchivos
     {
-        private readonly IWebHostEnvironment env;
+        private readonly string volumenPath;
         private readonly IHttpContextAccessor httpContextAccesor;
-        public AlmacenadorArchivosLocal(IWebHostEnvironment env,
-            IHttpContextAccessor httpContextAccessor)
+
+        public AlmacenadorArchivosLocal(IHttpContextAccessor httpContextAccessor)
         {
-            this.env = env;
             this.httpContextAccesor = httpContextAccessor;
+            // Ruta del volumen persistente
+            this.volumenPath = Environment.GetEnvironmentVariable("VOLUMEN_IMAGENES")
+                               ?? throw new Exception("Variable de entorno VOLUMEN_IMAGENES no definida");
         }
 
         public async Task<string> Almacenar(string contenedor, IFormFile archivo)
         {
             var extension = Path.GetExtension(archivo.FileName);
             var nombreArchivo = $"{Guid.NewGuid()}{extension}";
-            string folder = Path.Combine(env.WebRootPath, contenedor);
+            string folder = Path.Combine(volumenPath, contenedor);
 
             if (!Directory.Exists(folder))
             {
@@ -25,7 +27,8 @@ namespace BlogMVC.Servicios
 
             string ruta = Path.Combine(folder, nombreArchivo);
 
-            using (var ms = new MemoryStream()) { 
+            using (var ms = new MemoryStream())
+            {
                 await archivo.CopyToAsync(ms);
                 var contenido = ms.ToArray();
                 await File.WriteAllBytesAsync(ruta, contenido);
@@ -33,8 +36,8 @@ namespace BlogMVC.Servicios
 
             var request = httpContextAccesor.HttpContext!.Request;
             var url = $"{request.Scheme}://{request.Host}";
-            var urlArchivo = Path.Combine(url, contenedor, nombreArchivo).Replace("\\", "/") ;
-            return urlArchivo;
+            var urlArchivo = Path.Combine(contenedor, nombreArchivo).Replace("\\", "/"); // URL relativa
+            return $"{url}/{urlArchivo}";
         }
 
         public Task Borrar(string? ruta, string contenedor)
@@ -43,13 +46,15 @@ namespace BlogMVC.Servicios
             {
                 return Task.CompletedTask;
             }
+
             var nombreArchivo = Path.GetFileName(ruta);
-            var directorioArchivo = Path.Combine(env.WebRootPath, contenedor, nombreArchivo);
+            var directorioArchivo = Path.Combine(volumenPath, contenedor, nombreArchivo);
 
             if (File.Exists(directorioArchivo))
             {
                 File.Delete(directorioArchivo);
             }
+
             return Task.CompletedTask;
         }
     }
