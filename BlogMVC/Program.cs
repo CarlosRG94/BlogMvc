@@ -43,10 +43,12 @@ builder.Services.AddHttpClient();
 builder.Services.AddHostedService<AnalisisSentimientosRecurrente>();
 
 //Configuración entity framework
-builder.Services.AddDbContextFactory<ApplicationDBContext>(opciones =>
-opciones.UseSqlServer("name=DefaultConnection")
-.UseSeeding(Seeding.Aplicar)
-.UseAsyncSeeding(Seeding.AplicarAsync)
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+builder.Services.AddDbContextFactory<ApplicationDBContext>(options =>
+    options.UseNpgsql(connectionString)
+           .UseSeeding(Seeding.Aplicar)
+           .UseAsyncSeeding(Seeding.AplicarAsync)
 );
 
 //Configuracion de usuarios y roles
@@ -91,5 +93,11 @@ app.MapControllerRoute(
     .WithStaticAssets();
 
 app.MapBlazorHub();
+
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<ApplicationDBContext>();
+    db.Database.Migrate();
+}
 
 app.Run();
