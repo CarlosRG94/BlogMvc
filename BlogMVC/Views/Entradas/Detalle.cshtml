@@ -38,12 +38,13 @@
      }
     </div>
 
+    <div class="detalle-contenido">
     @if (!string.IsNullOrEmpty(Model.PortadaUrl))
     {
-        <img alt="portada" src="@Model.PortadaUrl" class="img-fluid mb-4 rounded shadow-sm" />
+        <img alt="portada" src="@Model.PortadaUrl" class="img-fluid portada mb-4 rounded shadow-sm" />
     }
-
     <div id="contenido" class="bg-white p-4 rounded shadow-sm"></div>
+    </div>
 
     <hr />
 

@@ -379,3 +379,21 @@ img.img-fluid {
     display: block;
     margin-bottom: 1rem;
 }
+
+.detalle-contenido {
+    display: flex;
+    flex-direction: column; /* imagen arriba, contenido debajo */
+    align-items: center; /* centramos horizontalmente */
+}
+
+    .detalle-contenido img.portada {
+        width: 90%; /* ocupa todo el ancho del contenedor */
+        max-width: 800px; /* evita que sea demasiado grande en pantallas grandes */
+        height: auto; /* mantiene proporción */
+        margin-bottom: 1rem;
+    }
+
+#contenido {
+    width: 100%;
+    max-width: 800px; /* coincide con el ancho máximo de la imagen */
+}
