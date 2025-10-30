@@ -420,3 +420,19 @@ img.img-fluid {
         padding: 0 2rem; /* más margen en pantallas grandes */
     }
 }
+
+@media (min-width: 992px) {
+    .detalle-contenido {
+        max-width: 900px; /* ancho mayor que en móvil */
+        padding-left: 2rem; /* margen izquierdo coherente con título/comentarios */
+        padding-right: 2rem;
+        margin-left: 0; /* pegado al lateral izquierdo */
+        margin-right: auto; /* evita que quede centrado */
+    }
+
+        .detalle-contenido img.portada,
+        #contenido {
+            width: 100%; /* se adapta al ancho del contenedor */
+            max-width: 100%;
+        }
+}
