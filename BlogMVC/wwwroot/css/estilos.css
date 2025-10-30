@@ -253,6 +253,21 @@ p {
             font-size: 0.9rem;
         }
 }
+
+/* 🚫 Desactiva la sombra en móviles para evitar "borde blanco" permanente */
+@media (max-width: 576px) {
+    .btn-accion {
+        box-shadow: none !important;
+        transform: none !important;
+    }
+
+        .btn-accion:hover,
+        .btn-accion:focus,
+        .btn-accion:active {
+            box-shadow: none !important;
+            transform: none !important;
+        }
+}
 /* Asegura que el formulario no altere el layout */
 form.m-0.p-0 {
     margin: 0 !important;
