@@ -299,3 +299,71 @@ form.m-0.p-0 {
     padding: 0 !important;
     display: inline-block;
 }
+
+/* 🔧 Elimina los estilos nativos de WebKit que causan el borde blanco */
+button.btn-accion,
+.btn-danger.btn-accion {
+    -webkit-appearance: none !important;
+    appearance: none !important;
+    background-clip: padding-box !important; /* evita halo blanco en bordes redondeados */
+    border: none !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+    padding: 0.45rem 0.75rem !important;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.2 !important;
+}
+
+/* 🔴 Color y comportamiento del botón "Borrar" */
+.btn-danger.btn-accion {
+    background-color: #dc3545 !important;
+    color: #fff !important;
+    border-radius: 8px !important;
+    transition: all 0.2s ease;
+}
+
+    .btn-danger.btn-accion:hover {
+        background-color: #bb2d3b !important;
+        box-shadow: none !important;
+        transform: translateY(-2px);
+    }
+
+    .btn-danger.btn-accion:active,
+    .btn-danger.btn-accion:focus {
+        background-color: #a52834 !important;
+        box-shadow: none !important;
+        outline: none !important;
+    }
+
+/* 📱 En móviles: sin sombra, sin movimiento, sin “borde blanco” */
+@media (max-width: 576px) {
+    button.btn-accion,
+    .btn-danger.btn-accion {
+        box-shadow: none !important;
+        transform: none !important;
+        background-clip: padding-box !important;
+    }
+
+        .btn-danger.btn-accion:hover,
+        .btn-danger.btn-accion:active,
+        .btn-danger.btn-accion:focus {
+            box-shadow: none !important;
+            transform: none !important;
+        }
+}
+
+/* 🧩 Asegura alineación correcta de botones dentro del contenedor flex */
+.d-flex.flex-column.flex-sm-row.gap-2 {
+    align-items: flex-start !important;
+}
+
+/* 🧱 Asegura que el formulario no genere saltos ni contornos */
+form.m-0.p-0 {
+    margin: 0 !important;
+    padding: 0 !important;
+    display: inline-block !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
