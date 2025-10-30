@@ -367,3 +367,15 @@ form.m-0.p-0 {
     background: transparent !important;
     box-shadow: none !important;
 }
+
+#contenido {
+    max-width: 100%; /* que no se salga del contenedor */
+    min-width: 300px; /* ancho mínimo legible para el texto */
+}
+
+img.img-fluid {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 1rem;
+}
