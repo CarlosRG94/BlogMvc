@@ -268,6 +268,31 @@ p {
             transform: none !important;
         }
 }
+
+/* 💡 Corrige el efecto visual en el botón rojo */
+.btn-danger.btn-accion {
+    box-shadow: none !important; /* quita sombra gris global */
+    background-color: #dc3545 !important; /* color estándar de Bootstrap */
+    border: none !important;
+}
+
+    /* Mantiene coherencia en hover (sin sombra blanca) */
+    .btn-danger.btn-accion:hover {
+        background-color: #bb2d3b !important; /* tono más oscuro al pasar el ratón */
+        box-shadow: none !important;
+        transform: translateY(-2px);
+    }
+
+/* En móviles, elimina también cualquier sombra residual */
+@media (max-width: 576px) {
+    .btn-danger.btn-accion,
+    .btn-danger.btn-accion:hover,
+    .btn-danger.btn-accion:focus,
+    .btn-danger.btn-accion:active {
+        box-shadow: none !important;
+        transform: none !important;
+    }
+}
 /* Asegura que el formulario no altere el layout */
 form.m-0.p-0 {
     margin: 0 !important;
