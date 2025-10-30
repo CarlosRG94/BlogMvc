@@ -403,7 +403,7 @@ img.img-fluid {
 /* Ajustes responsivos */
 @media (max-width: 576px) {
     .detalle-contenido {
-        padding: 0 0.50rem; /* un poco más de margen en móviles */
+        padding: 0 0.30rem; /* un poco más de margen en móviles */
     }
 
         .detalle-contenido img.portada {
@@ -424,7 +424,7 @@ img.img-fluid {
 @media (min-width: 992px) {
     .detalle-contenido {
         max-width: 1250px; /* ancho mayor que en móvil */
-        padding-left: 2rem; /* margen izquierdo coherente con título/comentarios */
+        padding-left: 1.50rem; /* margen izquierdo coherente con título/comentarios */
         padding-right: 2rem;
         margin-left: 0; /* pegado al lateral izquierdo */
         margin-right: auto; /* evita que quede centrado */
