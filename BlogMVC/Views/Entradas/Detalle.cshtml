@@ -27,10 +27,10 @@
             <form asp-action="Borrar" class="m-0 p-0">
                 <input type="hidden" name="Id" value="@Model.Id" />
                 @if(Model.EntradaBorrada){
-                    <button class="btn btn-sm btn-secondary" asp-action="Borrar"
+                    <button class="btn btn-sm btn-secondary btn-accion" asp-action="Borrar"
                             asp-route-borrado="false"><i class="bi bi-arrow-counterclockwise"></i> Restaurar</button>
                 } else {
-                    <button class="btn btn-sm btn-danger" asp-action="Borrar"
+                    <button class="btn btn-sm btn-danger btn-accion" asp-action="Borrar"
                             asp-route-borrado="true"><i class="bi bi-trash"></i> Borrar</button>
                 }
             </form>
