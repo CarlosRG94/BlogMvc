@@ -22,7 +22,7 @@
         <label asp-for="Cuerpo" class="form-label"></label>
         <input style="display:none" asp-for="Cuerpo" class="form-control" />
         <div id="editor"></div>
-        <button type="button" onclick="generarCuerpo()" class="btn btn-secondary mt-2">Generar</button>
+        <button type="button" onclick="generarCuerpo()" class="btn btn-secondary mt-2">Generar Cuerpo con IA</button>
         <span id="cuerpo-error" class="text-danger"></span>
     </div>
     <div class="mb-3">
@@ -37,7 +37,7 @@
             style="width:100px; display: none" src="~/img/loading.gif"/>
         </div>
 
-        <button type="button" class="btn btn-secondary mt-2" onclick="generarImagen()">Generar</button>
+        <button type="button" class="btn btn-secondary mt-2" onclick="generarImagen()">Generar Imagen con IA</button>
 
         <span asp-validation-for="ImagenPortada" class="text-danger"></span>
     </div>

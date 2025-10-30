@@ -238,6 +238,21 @@ p {
         transform: translateY(-2px);
         box-shadow: 0 4px 10px rgba(0,0,0,0.15);
     }
+
+/* 🔽 Ajustes responsive para móvil */
+@media (max-width: 576px) {
+    .btn-accion {
+        min-width: 100px;
+        height: 36px;
+        font-size: 0.85rem;
+        padding: 0.25rem 0.5rem;
+    }
+
+        .btn-accion i {
+            margin-right: 4px;
+            font-size: 0.9rem;
+        }
+}
 /* Asegura que el formulario no altere el layout */
 form.m-0.p-0 {
     margin: 0 !important;
