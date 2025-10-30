@@ -126,9 +126,18 @@
                     const contenido = document.getElementById("contenido");
 
                     if(imagen && contenido){
-                        contenido.style.width = imagen.clientWidth + "px";
-                    }
+                        // ancho del contenedor por defecto
+                        let anchoContenedor = imagen.clientWidth;
+
+                        // si la imagen es muy pequeña (<400px), ampliamos su ancho y ajustamos contenido
+                        if(anchoContenedor < 400){
+                            anchoContenedor = 400; // ancho mínimo
+                            imagen.style.width = anchoContenedor + "px";
                 }
+
+        contenido.style.width = anchoContenedor + "px";
+    }
+}
 
                 window.addEventListener("load", ajustarAncho);
                 window.addEventListener("resize", ajustarAncho);
