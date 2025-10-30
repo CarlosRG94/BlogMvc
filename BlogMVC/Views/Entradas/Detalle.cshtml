@@ -38,13 +38,12 @@
      }
     </div>
 
-    <div class="detalle-contenido">
     @if (!string.IsNullOrEmpty(Model.PortadaUrl))
-    {
-        <img alt="portada" src="@Model.PortadaUrl" class="img-fluid portada mb-4 rounded shadow-sm" />
+    { 
+        <img alt="portada" src="@Model.PortadaUrl" class="img-fluid
+        mb-4 rounded shadow-sm" /> 
     }
     <div id="contenido" class="bg-white p-4 rounded shadow-sm"></div>
-    </div>
 
     <hr />
 
@@ -126,19 +125,13 @@
                     const imagen = document.querySelector("img.img-fluid");
                     const contenido = document.getElementById("contenido");
 
-                    if(imagen && contenido){
-                        // ancho del contenedor por defecto
-                        let anchoContenedor = imagen.clientWidth;
-
                         // si la imagen es muy pequeña (<400px), ampliamos su ancho y ajustamos contenido
-                        if(anchoContenedor < 400){
-                            anchoContenedor = 400; // ancho mínimo
-                            imagen.style.width = anchoContenedor + "px";
+                       if(imagen && contenido)
+                       {
+                           contenido.style.width = imagen.clientWidth + "px";
+                       }
                 }
 
-        contenido.style.width = anchoContenedor + "px";
-    }
-}
 
                 window.addEventListener("load", ajustarAncho);
                 window.addEventListener("resize", ajustarAncho);
