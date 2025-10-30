@@ -403,7 +403,7 @@ img.img-fluid {
 /* 🔹 Vista detalle - escritorio */
 @media (min-width: 992px) {
     .detalle-contenido {
-        max-width: 1300px; /* ancho mayor que antes */
+        max-width: 1400px; /* ancho mayor que antes */
         padding-left: 1rem; /* margen izquierdo coherente con título y comentarios */
         padding-right: 1rem;
         margin-left: auto; /* pegado al lateral izquierdo */
