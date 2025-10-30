@@ -400,39 +400,34 @@ img.img-fluid {
     max-width: 800px; /* coincide con la imagen */
 }
 
-/* Ajustes responsivos */
-@media (max-width: 576px) {
-    .detalle-contenido {
-        padding: 0 0.20rem; /* un poco más de margen en móviles */
-    }
-
-        .detalle-contenido img.portada {
-            max-width: 100%; /* ocupa casi todo el ancho del móvil */
-        }
-
-    #contenido {
-        max-width: 100%;
-    }
-}
-
-@media (min-width: 1200px) {
-    .detalle-contenido {
-        padding: 0 2rem; /* más margen en pantallas grandes */
-    }
-}
-
+/* 🔹 Vista detalle - escritorio */
 @media (min-width: 992px) {
     .detalle-contenido {
-        max-width: 1250px; /* ancho mayor que en móvil */
-        padding-left: 0.8rem; /* margen izquierdo coherente con título/comentarios */
-        padding-right: 0.8rem;
+        max-width: 1300px; /* ancho mayor que antes */
+        padding-left: 2rem; /* margen izquierdo coherente con título y comentarios */
+        padding-right: 2rem;
         margin-left: 0; /* pegado al lateral izquierdo */
         margin-right: auto; /* evita que quede centrado */
+        align-items: flex-start; /* alineación al inicio, no centrado */
     }
 
         .detalle-contenido img.portada,
         #contenido {
-            width: 100%; /* se adapta al ancho del contenedor */
+            width: 100%;
+            max-width: 100%;
+        }
+}
+
+/* 🔹 Ajustes mínimos para móviles ya existentes */
+@media (max-width: 576px) {
+    .detalle-contenido {
+        padding: 0 0.5rem; /* mantiene margen mínimo en móvil */
+        align-items: center;
+    }
+
+        .detalle-contenido img.portada,
+        #contenido {
+            width: 100%;
             max-width: 100%;
         }
 }
